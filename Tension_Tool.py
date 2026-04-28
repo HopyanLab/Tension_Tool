@@ -227,6 +227,7 @@ def read_tiff (path):
 def randomise_segments (segments = None):
 	if segments is None:
 		return None
+	segements = segments.astype(int)
 	# consolodate and shuffle segment labels
 	shuffled = np.unique(segments)
 	index = 0
@@ -745,9 +746,9 @@ class Window(QWidget):
 	def find_bounds (self):
 		if self.areas is None:
 			return False
-	#	points, possible = find_points(self.areas, min_distance = 2)
-	#	self.edges = np.zeros_like(self.areas)
-	#	self.edges[points[:,0], points[:,1]] = 1
+#		points, possible = find_points(self.areas, min_distance = 2)
+#		self.edges = np.zeros_like(self.areas)
+#		self.edges[points[:,0], points[:,1]] = 1
 		self.edges = StandardLabelToBoundary(mode='thick')(
 							self.areas.reshape(1,
 											self.areas.shape[0],
