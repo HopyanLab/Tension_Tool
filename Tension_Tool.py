@@ -227,7 +227,7 @@ def read_tiff (path):
 def randomise_segments (segments = None):
 	if segments is None:
 		return None
-	segements = segments.astype(int)
+	segments = segments.astype(int)
 	# consolodate and shuffle segment labels
 	shuffled = np.unique(segments)
 	index = 0
